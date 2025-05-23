@@ -13,9 +13,9 @@ public class Main {
 
 
 
-        do {
-            pc.menuInicial();
+        do { pc.menuInicial();
             switch (pc.menuPrincipal) {
+
                 case 1:
                     do { pc.menuCardapio();
                     }while(pc.menuCardapio != 0);

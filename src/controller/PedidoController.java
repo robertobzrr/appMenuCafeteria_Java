@@ -1,5 +1,6 @@
 package controller;
 
+import model.Cliente;
 import model.Pedido;
 
 import java.util.Scanner;
@@ -9,12 +10,13 @@ public class PedidoController {
 
     Scanner sc = new Scanner(System.in);
     Pedido p = new Pedido();
+    Cliente c = new Cliente();
+
 
     public int menuPrincipal;
     public int menuCardapio;
     public int menuRegistrarPedido;
     public int verPedido;
-
 
 
     public void menuInicial(){
@@ -52,10 +54,15 @@ public class PedidoController {
 
     public void menuRegistrarPedido(){
         System.out.println("========== REGISTRAR PEDIDO ==========");
-        System.out.print("\nDigite seu nome: ");
-        p.setNomeCliente(sc.nextLine());
 
-        System.out.println("\nDigite seu pedido: (Ex: 1x Latte): ");
+        System.out.print("\nDigite o número da mesa: ");
+        c.setIdMesa(sc.nextInt());
+        sc.nextLine();
+
+        System.out.print("Digite seu nome: ");
+        c.setNomeCliente(sc.nextLine());
+
+        System.out.print("Digite seu pedido: (Ex: 1x Latte): ");
         p.setPedidoCliente(sc.nextLine());
 
         System.out.println("\n[0] - Finalizar pedido");
@@ -66,7 +73,7 @@ public class PedidoController {
 
     public void verPedido(){
         System.out.println("========= SEU PEDIDO =========");
-        System.out.println("\nCliente: "+p.getNomeCliente()+ "\nPedido: "+p.getPedidoCliente());
+        System.out.println("\nMesa:"+c.getIdMesa()+"\nCliente: "+c.getNomeCliente()+ "\nPedido: "+p.getPedidoCliente());
 
         System.out.println("\n[0] - Voltar");
         System.out.println("\n==============================\n");
