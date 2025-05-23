@@ -2,8 +2,9 @@ package model;
 
 public class Pedido {
 
-    String pedidoCliente;
     String nomeCliente;
+    String pedidoCliente;
+
 
 
 
