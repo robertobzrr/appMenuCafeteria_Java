@@ -1,22 +1,39 @@
 package controller;
-
 import model.Cliente;
 import model.Pedido;
-
 import java.util.Scanner;
+
 
 public class PedidoController {
 
 
     Scanner sc = new Scanner(System.in);
-    Pedido p = new Pedido();
-    Cliente c = new Cliente();
+    Pedido pedido = new Pedido();
+    Cliente cliente = new Cliente();
 
 
-    public int menuPrincipal;
-    public int menuCardapio;
-    public int menuRegistrarPedido;
-    public int verPedido;
+    private int opcaoMenuPrincial;
+    private int opcaoMenuCardapio;
+    private int opcaoMenuRegistrarPedido;
+    private int opcaoVerPedido;
+
+
+    public int getOpcaoMenuPrincial(){
+        return opcaoMenuPrincial;
+
+    }
+    public int getOpcaoMenuCardapio(){
+        return opcaoMenuCardapio;
+
+    }
+    public int getOpcaoMenuRegistrarPedido(){
+        return opcaoMenuRegistrarPedido;
+
+    }
+    public int getOpcaoVerPedido(){
+        return opcaoVerPedido;
+
+    }
 
 
     public void menuInicial(){
@@ -27,11 +44,10 @@ public class PedidoController {
         System.out.println("\n[0] - Finalizar");
         System.out.println("\n====================================\n");
 
-        menuPrincipal = sc.nextInt();
+        opcaoMenuPrincial = sc.nextInt();
         sc.nextLine();
 
     }
-
     public void menuCardapio(){
         System.out.println("\n========= CARDÁPIO DE CAFÉS =========\n");
         System.out.println("| Café Expresso.........R$ 5,00  |");
@@ -47,45 +63,41 @@ public class PedidoController {
         System.out.println("\n[0] - Voltar");
         System.out.println("\n===================================\n");
 
-        menuCardapio = sc.nextInt();
+        opcaoMenuCardapio = sc.nextInt();
         sc.nextLine();
 
     }
-
     public void menuRegistrarPedido(){
         System.out.println("========== REGISTRAR PEDIDO ==========");
 
         System.out.print("\nDigite o número da mesa: ");
-        c.setIdMesa(sc.nextInt());
+        cliente.setIdMesa(sc.nextInt());
         sc.nextLine();
 
         System.out.print("Digite seu nome: ");
-        c.setNomeCliente(sc.nextLine());
+        cliente.setNomeCliente(sc.nextLine());
 
         System.out.print("Digite seu pedido: (Ex: 1x Latte): ");
-        p.setPedidoCliente(sc.nextLine());
+        pedido.setPedidoCliente(sc.nextLine());
 
         System.out.println("\n[0] - Finalizar pedido");
         System.out.println("\n===================================\n");
-        menuRegistrarPedido = sc.nextInt();
+        opcaoMenuRegistrarPedido = sc.nextInt();
         sc.nextLine();
     }
-
     public void verPedido(){
         System.out.println("========= SEU PEDIDO =========");
-        System.out.println("\nMesa:"+c.getIdMesa()+"\nCliente: "+c.getNomeCliente()+ "\nPedido: "+p.getPedidoCliente());
+        System.out.println("\nMesa: "+ cliente.getIdMesa()+"\nCliente: "+ cliente.getNomeCliente()+ "\nPedido: "+ pedido.getPedidoCliente());
 
         System.out.println("\n[0] - Voltar");
         System.out.println("\n==============================\n");
-        verPedido = sc.nextInt();
+        opcaoVerPedido = sc.nextInt();
         sc.nextLine();
     }
-
     public void finalizarMenu(){
         System.out.println("Finalizando...");
 
     }
-
     public void defaultCase(){
         System.out.println("Escolha uma opção válida!");
 

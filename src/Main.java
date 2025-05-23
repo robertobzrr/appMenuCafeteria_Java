@@ -1,7 +1,5 @@
 import controller.PedidoController;
-import model.Pedido;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -12,23 +10,22 @@ public class Main {
 
 
 
-
         do { pc.menuInicial();
-            switch (pc.menuPrincipal) {
+            switch (pc.getOpcaoMenuPrincial()) {
 
                 case 1:
                     do { pc.menuCardapio();
-                    }while(pc.menuCardapio != 0);
+                    }while(pc.getOpcaoMenuCardapio() != 0);
                     break;
 
                 case 2:
                     do { pc.menuRegistrarPedido();
-                    }while(pc.menuRegistrarPedido != 0);
+                    }while(pc.getOpcaoMenuRegistrarPedido() != 0);
                     break;
 
                 case 3:
                     do { pc.verPedido();
-                    }while(pc.verPedido != 0);
+                    }while(pc.getOpcaoVerPedido() != 0);
                     break;
 
                 case 0:
@@ -41,7 +38,7 @@ public class Main {
             }
 
 
-        }while (pc.menuPrincipal != 0);
+        }while (pc.getOpcaoMenuPrincial() != 0);
         System.out.println("Programa Finalizado, Volte Sempre!");
     }
 }
