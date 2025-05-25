@@ -1,26 +1,16 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class Pedido {
+    private List<ItemPedido> itens = new ArrayList<>();
 
-    String pedidoCliente;
-
-
-    public String getPedidoCliente() {
-        return pedidoCliente;
-
-    }
-    public void setPedidoCliente(String pedidoClienteDigitado) {
-        this.pedidoCliente = pedidoClienteDigitado;
-
+    public void adicionarItem(ItemPedido item) {
+        itens.add(item);
     }
 
-
-
-
-
-
-
-
-
+    public List<ItemPedido> getItens() {
+        return itens;
+    }
 }
